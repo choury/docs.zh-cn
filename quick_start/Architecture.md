@@ -7,6 +7,7 @@
 ## 组件介绍
 
 StarRocks 集群由 FE 和 BE 构成， 可以使用 MySQL 客户端访问 StarRocks 集群。
+可选的，集群中也可以部署 CN 节点，用来提升计算性能。
 
 ### FrontEnd
 
@@ -32,6 +33,8 @@ StarRocks 集群由 FE 和 BE 构成， 可以使用 MySQL 客户端访问 StarR
 
 ## 其他组件
 
+### Compute Node
+简称 CN，是 StarRocks 的纯计算节点，只负责执行计算任务，不会保存持久化数据，一般用来提升集群的计算能力。
 ### Broker
 
 Broker 是 StarRocks 和 HDFS 对象存储等外部数据对接的中转服务，辅助提供导入导出功能，如需使用 broker load，spark load，备份恢复等功能需要安装启动 Broker。

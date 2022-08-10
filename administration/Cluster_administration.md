@@ -63,6 +63,25 @@ sh bin/start_fe.sh --daemon
 cd StarRocks-x.x.x/be
 sh bin/start_be.sh --daemon
 ```
+### 启动 CN 集群 (可选)
+
+#### 确认 CN 配置
+
+|配置项|描述|默认值|
+|---|---|---|
+|thrift_port|CN 上 Thrift Server 的端口，用于接收来自 FE 的请求。|9060|
+|webserver_port|CN 上的 HTTP Server 的端口。|8040|
+|heartbeat_service_port|CN 上 Thrift server 端口，用于接收来自 FE 的心跳。|9050|
+|brpc_port|CN 与 BE 节点间的通讯端口。|8060|
+
+#### 启动 CN 进程
+
+进入 CN 进程的部署路径并运行命令启动服务。
+
+```shell
+cd StarRocks-x.x.x/be
+sh bin/start_cn.sh --daemon
+```
 
 ### 确认集群健康状态
 
@@ -75,6 +94,15 @@ http://<be_host>:<be_http_port>/api/health
 ```
 
 若返回 `{"status": "OK", "msg": "To Be Added"}`，则集群正常启动。
+
+* 确认 CN 集群启动状态。
+
+```shell
+http://<cn_host>:<cn_http_port>/api/health
+```
+
+若返回 `{"status": "OK", "msg": "To Be Added"}`，则集群正常启动。
+
 
 * 确认 FE 集群启动状态。
 
@@ -103,6 +131,16 @@ sh bin/stop_fe.sh
 cd StarRocks-x.x.x/be
 sh bin/stop_be.sh
 ```
+
+### 停止 CN 集群
+
+进入 CN 路径，运行命令停止 CN 集群。
+
+```shell
+cd StarRocks-x.x.x/be
+sh bin/stop_cn.sh
+```
+
 
 ## 升级集群
 
@@ -208,6 +246,15 @@ sh bin/start_fe.sh --daemon
 ```shell
 ps aux | grep StarRocksFE
 ```
+
+### 升级 CN 节点
+
+由于CN节点是无状态的，因此，只需要替换二进制文件，然后重新启动进程即可，推荐使用graceful的停止方式
+```
+sh bin/stop_cn.sh --graceful
+```
+
+使用该种方式停止，CN会等待当前运行的任务运行结束后再退出进程
 
 ### 升级 Broker
 

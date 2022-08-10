@@ -48,9 +48,11 @@ SET GLOBAL exec_mem_limit = 137438953472;
 * hash_join_push_down_right_table
 * parallel_fragment_exec_instance_num
 * parallel_exchange_instance_num
+* prefer_compute_node
 * query_timeout
 * sql_mode
 * time_zone
+* use_compute_nodes
 * vectorized_engine_enable
 * wait_timeout
 
@@ -256,6 +258,12 @@ SELECT /*+ SET_VAR(query_timeout = 1) */ sleep(3);
 
     用于兼容 8.0.16及以上版本的MySQL JDBC。无实际作用。
 
+* prefer_compute_node
+
+    用于指定使用ComputeNode运行SQL任务，默认为 false，代表不使用CN
+
+    如果设置为ture，则会将除了OlapScanNode和OlapTableSink之外的执行计划调度到CN运行
+
 * query_cache_size
 
     用于兼容 MySQL 客户端。无实际作用。
@@ -309,6 +317,10 @@ SELECT /*+ SET_VAR(query_timeout = 1) */ sleep(3);
 * tx_isolation
 
     用于兼容 MySQL 客户端。无实际作用。
+
+* use_compute_nodes
+
+    用于设置使用CN节点的最大数目，为-1则使用所有CN，为0则不使用CN，该设置只会在`prefer_compute_node=true`时才会生效。
 
 * use_v2_rollup
 
