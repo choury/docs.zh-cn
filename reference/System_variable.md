@@ -260,9 +260,9 @@ SELECT /*+ SET_VAR(query_timeout = 1) */ sleep(3);
 
 * prefer_compute_node
 
-    用于指定使用ComputeNode运行SQL任务，默认为 false，代表不使用 CN。
+    用于指定使用计算节点执行 SQL ，默认为 false，即不使用计算节点。
 
-    如果设置为true，则会将除了 OlapScanNode 和 OlapTableSink 之外的执行计划调度到 CN 运行。
+    如果设置为 true，则会将除了 OlapScanNode 和 OlapTableSink 之外的执行计划调度到计算节点执行。
 
 * query_cache_size
 
@@ -320,7 +320,8 @@ SELECT /*+ SET_VAR(query_timeout = 1) */ sleep(3);
 
 * use_compute_nodes
 
-    用于设置使用CN节点的最大数目，为-1则使用所有CN，为0则不使用CN，该设置只会在`prefer_compute_node=true`时才会生效。
+    用于设置使用计算节点的数量上限。该设置只会在 `prefer_compute_node=true` 时才会生效。
+    -1 表示使用所有计算节点，0 表示不使用计算节点。
 
 * use_v2_rollup
 
