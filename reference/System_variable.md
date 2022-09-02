@@ -262,7 +262,7 @@ SELECT /*+ SET_VAR(query_timeout = 1) */ sleep(3);
 
     用于指定使用 CN 节点执行 SQL ，默认为 false，即不使用 CN 节点。
 
-    如果设置为 true，则会将除了 OlapScanNode 和 OlapTableSink 之外的执行计划调度到 CN 节点执行。
+    如果设置为 true，则会将部分执行计划调度到 CN 节点执行。
 
 * query_cache_size
 
