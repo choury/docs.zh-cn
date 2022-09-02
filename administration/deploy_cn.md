@@ -1,10 +1,8 @@
 # 手动部署计算节点
 
-## 部署计算节点
+计算节点（Compute Node，以下简称 CN） 是 StarRocks 的计算节点，负责执行 SQL 。本文介绍如何配置部署一个 CN 节点。您可以通过重复以下步骤添加多个 CN 节点。
 
-本小节介绍如何配置部署 ComputeNode (CN) 节点。CN 是StarRocks的计算节点，负责SQL执行工作。以下例子仅部署一个 CN 节点。您可以通过重复以下步骤添加多个 CN 节点。
-
-### 下载并解压安装包
+## 下载并解压安装包
 
 [下载](https://www.starrocks.com/zh-CN/download) StarRocks 并解压二进制安装包。
 
@@ -15,7 +13,7 @@ tar -xzvf StarRocks-x.x.x.tar.gz
 > 注意
 > 将以上文件名修改为下载的二进制安装包名。
 
-### 配置 CN 节点
+## 配置 CN 节点
 
 进入 **StarRocks-x.x.x/be** 路径。
 
@@ -27,7 +25,7 @@ cd StarRocks-x.x.x/be
 > 将以上路径名修改为解压后的路径名。
 修改 CN 节点配置文件 **conf/cn.conf**。因默认配置即可启动集群，以下示例并未修改 CN 节点配置。如需在生产环境中对集群进行详细优化配置，因为大部分参数均继承自BE，可以参考 [BE 参数配置](../administration/Configuration.md#BE-参数配置)。
 
-### 添加 CN 节点
+## 添加 CN 节点
 
 通过 MySQL 客户端将 CN 节点添加至 StarRocks 集群。
 
@@ -45,7 +43,8 @@ mysql> ALTER SYSTEM drop COMPUTE NODE "host:port";
 
 > 说明
 > `host` 和 `port` 与添加的 CN 节点一致。
-### 启动 CN 节点
+
+## 启动 CN 节点
 
 运行以下命令启动 CN 节点。
 
@@ -53,7 +52,7 @@ mysql> ALTER SYSTEM drop COMPUTE NODE "host:port";
 bin/start_cn.sh --daemon
 ```
 
-### 确认 CN 启动成功
+## 确认 CN 启动成功
 
 通过 MySQL 客户端确认 CN 节点是否启动成功。
 
