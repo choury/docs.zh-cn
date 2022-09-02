@@ -7,7 +7,6 @@
 ## 组件介绍
 
 StarRocks 集群由 FE 和 BE 构成， 可以使用 MySQL 客户端访问 StarRocks 集群。
-可选的，集群中也可以部署 CN 节点，用来提升计算性能。
 
 ### FrontEnd
 
