@@ -260,9 +260,9 @@ SELECT /*+ SET_VAR(query_timeout = 1) */ sleep(3);
 
 * prefer_compute_node
 
-    用于指定使用ComputeNode运行SQL任务，默认为 false，代表不使用CN
+    用于指定使用ComputeNode运行SQL任务，默认为 false，代表不使用 CN。
 
-    如果设置为ture，则会将除了OlapScanNode和OlapTableSink之外的执行计划调度到CN运行
+    如果设置为true，则会将除了 OlapScanNode 和 OlapTableSink 之外的执行计划调度到 CN 运行。
 
 * query_cache_size
 
