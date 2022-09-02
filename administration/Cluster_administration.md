@@ -250,7 +250,7 @@ ps aux | grep StarRocksFE
 
 由于 CN 节点是无状态的，因此，只需要替换二进制文件，然后重新启动进程即可，推荐使用 graceful 的停止方式。
 
-```
+```shell
 sh bin/stop_cn.sh --graceful
 ```
 
