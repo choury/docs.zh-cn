@@ -6,14 +6,14 @@
 
 StarRocks的**架构简洁，整个系统的核心只有FE（Frontend）、BE（Backend）两类进程，**不依赖任何外部组件，方便部署与维护。同时，FE和BE模块都可以在线水平扩展，元数据和数据都有副本机制，确保整个系统无单点。并且可以通过增加 CN（Compute Nod，可选节点）的方式来增加集群的计算性能。
 
-Frontend是StarRocks的前端节点，**负责管理元数据，管理客户端连接，进行查询规划，查询调度**等工作。FE根据配置会有两种角色：Follower和Observer。
+FE（Frontend）是StarRocks的前端节点，**负责管理元数据，管理客户端连接，进行查询规划，查询调度**等工作。FE根据配置会有两种角色：Follower和Observer。
 
 - Follower会通过类Paxos的BDBJE协议选主出一个Leader（实现选主需要集群中有半数以上的Follower实例存活），只有Leader会对元数据进行写操作。非Leader节点会自动的将元数据写入请求路由到Leader节点。每次元数据写入时，必须有多数Follower成功才能确认是写入成功。
 - Observer不参与选主操作，只会异步同步并且回放日志，主要用于扩展集群的查询并发能力。每个FE节点都会在内存保留一份完整的元数据，这样每个FE节点都能够提供无差别的服务。
 
-Backend是StarRocks的后端节点，**负责数据存储以及SQL执行**等工作。
+BE（Backend）是StarRocks的后端节点，**负责数据存储以及SQL执行**等工作。
 
-Compute Node是StarRocks的后端节点（可选），作为计算节点，负责 SQL 执行，提升集群的计算能力。
+CN（Compute Nod，可选节点）是StarRocks的后端节点，作为计算节点，负责 SQL 执行，提升集群的计算能力。
 
 数据存储方面，StarRocks的BE节点都是完全对等的，FE按照一定策略将数据分配到对应的BE节点。BE负责将导入数据写成对应的格式以及生成相关索引。
 
