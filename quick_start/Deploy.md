@@ -321,6 +321,8 @@ ALTER SYSTEM DROP BACKEND "172.16.xxx.xx:9050";
 ./bin/stop_be.sh --daemon
 ```
 
+<br/>
+
 ## 下一步
 
 成功部署 StarRocks 集群后，您可以：
