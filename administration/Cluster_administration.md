@@ -63,6 +63,7 @@ sh bin/start_fe.sh --daemon
 cd StarRocks-x.x.x/be
 sh bin/start_be.sh --daemon
 ```
+
 ### 启动 CN 集群 (可选)
 
 #### 确认 CN 配置
@@ -103,7 +104,6 @@ http://<cn_host>:<cn_http_port>/api/health
 
 若返回 `{"status": "OK", "msg": "To Be Added"}`，则集群正常启动。
 
-
 * 确认 FE 集群启动状态。
 
 ```shell
@@ -140,7 +140,6 @@ sh bin/stop_be.sh
 cd StarRocks-x.x.x/be
 sh bin/stop_cn.sh
 ```
-
 
 ## 升级集群
 
