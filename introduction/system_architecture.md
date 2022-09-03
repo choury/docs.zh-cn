@@ -13,7 +13,7 @@ FE（Frontend）是StarRocks的前端节点，**负责管理元数据，管理�
 
 BE（Backend）是StarRocks的后端节点，**负责数据存储以及SQL执行**等工作。
 
-CN（Compute Nod，可选节点）是StarRocks的计算节点，**负责SQL执行**，提升集群的计算能力。
+CN（Compute Node，可选节点）是StarRocks的计算节点，**负责SQL执行**，提升集群的计算能力。
 
 数据存储方面，StarRocks的BE节点都是完全对等的，FE按照一定策略将数据分配到对应的BE节点。BE负责将导入数据写成对应的格式以及生成相关索引。
 
