@@ -4,7 +4,7 @@
 
 ![system_architecture](../assets/1.2-1.png)
 
-StarRocks的**架构简洁，整个系统的核心有FE（Frontend）、BE（Backend）、CN（Compute Node）三类进程，**不依赖任何外部组件，方便部署与维护。同时，FE和BE模块都可以在线水平扩展，元数据和数据都有副本机制，确保整个系统无单点。此外部署多个 CN 模块，可以增强算力。
+StarRocks的**架构简洁，整个系统的核心有FE（Frontend）、BE（Backend）、CN（Compute Node）三类进程，**不依赖任何外部组件，方便部署与维护。同时，FE和BE模块都可以在线水平扩展，元数据和数据都有副本机制，确保整个系统无单点。此外部署多个CN模块，可以增强算力。
 
 FE（Frontend）是StarRocks的前端节点，**负责管理元数据，管理客户端连接，进行查询规划，查询调度**等工作。FE根据配置会有两种角色：Follower和Observer。
 
