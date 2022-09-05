@@ -86,7 +86,15 @@ sh bin/start_cn.sh --daemon
 
 ### 确认集群健康状态
 
-在 BE 和 FE 启动完成之后，您需要检查进程状态，以确定服务正常启动。
+在 FE、BE、CN 启动完成之后，您需要检查进程状态，以确定服务正常启动。
+
+* 确认 FE 集群启动状态。
+
+```shell
+http://<fe_host>:<fe_http_port>/api/bootstrap
+```
+
+若返回 `{"status": "OK", "msg": "Success"}`，则集群正常启动。
 
 * 确认 BE 集群启动状态。
 
@@ -104,13 +112,9 @@ http://<cn_host>:<cn_http_port>/api/health
 
 若返回 `{"status": "OK", "msg": "To Be Added"}`，则集群正常启动。
 
-* 确认 FE 集群启动状态。
+确认正常启动后，如果执行查询时需要使用 CN 节点，扩展算力，则需要设置系统变量 [`prefer_compute_node`、`use_compute_nodes`](../reference/System_variable.md
+)。
 
-```shell
-http://<fe_host>:<fe_http_port>/api/bootstrap
-```
-
-若返回 `{"status": "OK", "msg": "Success"}`，则集群正常启动。
 
 ## 停止集群
 
