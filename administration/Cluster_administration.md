@@ -115,7 +115,6 @@ http://<cn_host>:<cn_http_port>/api/health
 确认正常启动后，如果执行查询时需要使用 CN 节点，扩展算力，则需要设置系统变量 [`prefer_compute_node`、`use_compute_nodes`](../reference/System_variable.md
 )。
 
-
 ## 停止集群
 
 ### 停止 FE 集群
