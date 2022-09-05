@@ -96,8 +96,8 @@ ClusterDecommissioned: false
 
 如果 CN 节点没有正常接入集群，可以通过查看 **log/cn.WARNING** 日志文件排查问题。
 
-确认 CN 节点启动成功后，如果执行查询时需要使用 CN 节点，扩展算力，则需要设置系统变量 [`prefer_compute_node`和`use_compute_nodes`](../reference/System_variable.md
-)
+确认 CN 节点启动成功后，如果执行查询时需要使用 CN 节点，扩展算力，则需要设置系统变量 [`prefer_compute_node`、`use_compute_nodes`](../reference/System_variable.md
+)。
 
 ## 停止 CN 节点
 
